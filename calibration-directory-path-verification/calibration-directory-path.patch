@@ -1,0 +1,26 @@
+diff --git a/calibrate_so101.py b/calibrate_so101.py
+index 05d9a8a..3a8291a 100644
+--- a/calibrate_so101.py
++++ b/calibrate_so101.py
+@@ -39,7 +39,7 @@ def main() -> None:
+         "id": args.robot_id,
+     }
+     if args.calibration_dir:
+-        kwargs["calibration_dir"] = args.calibration_dir
++        kwargs["calibration_dir"] = Path(args.calibration_dir)
+ 
+     robot = SO101Follower(SO101FollowerConfig(**kwargs))
+     robot.connect(calibrate=False)
+diff --git a/run_so101_hm.py b/run_so101_hm.py
+index 49e2098..4ed306f 100644
+--- a/run_so101_hm.py
++++ b/run_so101_hm.py
+@@ -188,7 +188,7 @@ def make_robot(args: argparse.Namespace) -> SO101Follower:
+         "use_degrees": args.use_degrees,
+     }
+     if args.calibration_dir:
+-        cfg_kwargs["calibration_dir"] = args.calibration_dir
++        cfg_kwargs["calibration_dir"] = Path(args.calibration_dir)
+     return SO101Follower(SO101FollowerConfig(**cfg_kwargs))
+ 
+ 

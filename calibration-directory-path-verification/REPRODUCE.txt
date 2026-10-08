@@ -1,0 +1,45 @@
+Reproduce the calibration-directory fix without robot hardware or vendor SDKs
+
+Prerequisites: Git and Python 3.10+ with venv. Tested on macOS arm64 with
+Python 3.10.20 and 3.12.13. The single direct verification dependency is
+draccus==0.8.0. All robot-related filesystem changes use temporary fixtures;
+motor/camera access and model execution are replaced explicitly by the harness.
+
+Extract the review bundle into a fresh directory and run from that directory:
+
+git clone https://github.com/RadixRootMind/Radix-Embodied-Stack.git upstream
+git -C upstream checkout --detach 8533e14b9c63f0fd465c6b25bebbce38a63f92e6
+python3.10 -m venv .repro-venv
+.repro-venv/bin/python -m pip install -r validation-requirements.txt
+.repro-venv/bin/python verify_calibration_cli.py upstream --expect buggy --output before.json
+git -C upstream apply --check ../calibration-directory-path.patch
+git -C upstream apply ../calibration-directory-path.patch
+.repro-venv/bin/python verify_calibration_cli.py upstream --expect fixed --output after.json
+git -C upstream diff --check
+
+Python 3.12 can replace python3.10 in the venv creation command. Existing
+checkout/venv directory names in these commands should be changed if occupied.
+
+Expected results per Python version:
+- Before: 28 expectation checks pass: 4 omitted/empty-string cases initialize
+  successfully and 24 non-empty custom-path cases fail with the original
+  AttributeError. A "checks passed" count here confirms the expected failures;
+  it does not mean the original functionality works.
+- After: 28 expectation checks pass: 22 valid paths/file operations initialize
+  successfully; 6 invalid-input cases raise FileExistsError, NotADirectoryError
+  or JSONDecodeError. No mkdir AttributeError remains.
+- The real follower's name is so_follower, so omitted/empty fallback directories
+  use .../robots/so_follower/ and the default file is so101_follower.json.
+- Existing-file cases exercise the actual Robot._load_calibration with six
+  synthetic MotorCalibration objects and verify input bytes remain unchanged
+  during initialization. Roundtrip cases call the actual _save_calibration and
+  construct another real follower to reload the resulting JSON.
+
+Coverage: both CLI entrypoints with omitted, empty, relative, absolute, spaces,
+Unicode, existing, current, existing calibration, new-file roundtrip, custom
+robot id, regular-file target, regular-file parent, and malformed JSON cases.
+
+Boundary: these commands execute the isolated harness. They do not run the
+ordinary robot CLIs against connected devices. The runtime main is exercised
+with a replaced policy loader and zero loop steps; real model execution,
+camera/serial I/O and interactive motor calibration are outside this validation.

@@ -1,0 +1,243 @@
+{
+  "harness_revision": "2: actual SOFollower constructor and calibration file lifecycle",
+  "harness_sha256": "1fd5f69c20cc8c0e461d78f5d1bebc3e91923fdd55a777eba0c2f502bec1703d",
+  "base_commit": "8533e14b9c63f0fd465c6b25bebbce38a63f92e6",
+  "python": "3.12.13 (main, Mar  3 2026, 15:35:03) [Clang 21.1.4 ]",
+  "draccus": "0.8.0",
+  "expect": "buggy",
+  "source_sha256": {
+    "calibrate_so101.py": "0bc94f403e26c48b67a6ab0fcf5437a5c15b0c8deb1c6c78e0c98f10e2883d9c",
+    "run_so101_hm.py": "862ca1fbe5dc344b401777046cf9e4e08a768ddbc2c3a798d6426b96db3ecf5b"
+  },
+  "checks_passed": 28,
+  "checks": [
+    {
+      "entrypoint": "calibrate_so101.py",
+      "case": "omitted",
+      "outcome": "expected successful path initialization and cleanup",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "calibrate_so101.py",
+      "case": "empty",
+      "outcome": "expected successful path initialization and cleanup",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "calibrate_so101.py",
+      "case": "relative",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "calibrate_so101.py",
+      "case": "absolute",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "calibrate_so101.py",
+      "case": "spaces",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "calibrate_so101.py",
+      "case": "unicode",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "calibrate_so101.py",
+      "case": "existing",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "calibrate_so101.py",
+      "case": "current",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "calibrate_so101.py",
+      "case": "existing_calibration",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "calibrate_so101.py",
+      "case": "new_roundtrip",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "calibrate_so101.py",
+      "case": "custom_robot_id",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "calibrate_so101.py",
+      "case": "path_is_file",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "calibrate_so101.py",
+      "case": "parent_is_file",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "calibrate_so101.py",
+      "case": "malformed_calibration",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "run_so101_hm.py",
+      "case": "omitted",
+      "outcome": "expected successful path initialization and cleanup",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "run_so101_hm.py",
+      "case": "empty",
+      "outcome": "expected successful path initialization and cleanup",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "run_so101_hm.py",
+      "case": "relative",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "run_so101_hm.py",
+      "case": "absolute",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "run_so101_hm.py",
+      "case": "spaces",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "run_so101_hm.py",
+      "case": "unicode",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "run_so101_hm.py",
+      "case": "existing",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "run_so101_hm.py",
+      "case": "current",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "run_so101_hm.py",
+      "case": "existing_calibration",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "run_so101_hm.py",
+      "case": "new_roundtrip",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "run_so101_hm.py",
+      "case": "custom_robot_id",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "run_so101_hm.py",
+      "case": "path_is_file",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "run_so101_hm.py",
+      "case": "parent_is_file",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    },
+    {
+      "entrypoint": "run_so101_hm.py",
+      "case": "malformed_calibration",
+      "outcome": "expected upstream mkdir AttributeError",
+      "existing_file_preserved": false,
+      "calibration_roundtrip_checked": false
+    }
+  ],
+  "outcome_counts": {
+    "successful": 4,
+    "upstream mkdir": 24,
+    "invalid-input": 0
+  },
+  "actual_follower_name": "so_follower",
+  "actual_constructor_source": "third_party/lerobot/src/lerobot/robots/so_follower/so_follower.py",
+  "real_code": [
+    "complete CLI modules",
+    "RobotConfig",
+    "SO101FollowerConfig",
+    "SOFollower.__init__",
+    "Robot.__init__",
+    "Robot._load_calibration",
+    "Robot._save_calibration",
+    "MotorCalibration",
+    "OpenCVCameraConfig",
+    "RealSenseCameraConfig",
+    "draccus 0.8.0"
+  ],
+  "substituted": [
+    "SO101 hardware methods",
+    "motor bus/camera factories",
+    "unused heavy motor helpers",
+    "tensor/policy imports",
+    "runtime policy loading"
+  ],
+  "limitations": [
+    "No M50 SDK or model execution",
+    "No serial or camera I/O",
+    "Runtime uses zero control steps"
+  ]
+}
